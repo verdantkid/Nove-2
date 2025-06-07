@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Keith1Roblox</title>
+     <link rel = "stylesheet" href = "more.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+ </head>
+ <body>
+ <style>
+     body {
+         margin: 0;
+         display: flex;
+         font-family: 'Source Sans 3', sans-serif;
+         background-color: rgb(236, 236, 236)
+ 
+     }
+ 
+     .topbar {
+         width: 100%;
+         background: rgb(19, 119, 201);
+         padding: 5px 20px;
+         position: flex;
+         z-index: 1;
+         align-items: center;
+         justify-content: space-between;
+         height: 40px;
+     }
+ 
+     .logo{
+         height: 40px;
+         margin-right: 20px;
+     }
+ 
+     .topbar-content h1 {
+         margin: 0;
+         font-family: sans-serif;
+         font-weight: lighter;
+         color: rgb(255, 255, 255);
+         font-style: italic;
+     }
+ 
+     .topbar-content {
+         display: flex;
+         align-items: center;
+     }
+ 
+     .content {
+         display: flex;
+         gap: 20px;
+     }
+
+     .button-row {
+    display: flex;
+    gap: 24px; /* space between buttons */
+    flex-wrap: wrap; /* allows wrapping on small screens */
+    margin-top: 20px;
+}
+ 
+     .contentlinks a {
+         color: rgb(255, 255, 255);
+         text-decoration: none;
+         font-size: 20px;
+         margin-left: 50px;
+     }
+ 
+     .contentlinks_hover a {
+         color: white;
+         text-decoration: underline;
+         font-size: 20px;
+     }
+ 
+     .maincontent {
+         margin-top: 20px;
+         padding: 20px;
+     }
+ 
+     .maincontent h1 {
+         font-size: 40px;
+         color: rgb(0, 0, 0);
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         font-weight: lighter;
+     }
+ 
+.roblox-button {
+    display: flex;                /* Change from inline-block to flex */
+    flex-direction: column;       /* Stack children vertically */
+    align-items: center;          /* Center content horizontally */
+    width: 203px;
+    padding: 0 0 16px 0;
+    background-color: white;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.roblox-button img {
+    width: 100%;
+    height: auto; /* Let the image height adjust */
+    max-height: 200px; /* Optional: limit image height */
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+ 
+     .roblox-button h3 {
+         margin: 12px 0 0 0;
+         font-size: 16px;
+         font-weight: bold;
+         font-family: 'Source Sans 3', sans-serif;
+     }
+ 
+     .roblox-button:hover {
+         transform: scale(1.05);
+     }
+ 
+     .roblox-button h4 {
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: lighter;
+    font-family: 'Source Sans 3', sans-serif;
+    width: 100%;              /* Make h4 take full width of button */
+    box-sizing: border-box;   /* Ensure padding/border don't overflow */
+    text-align: center;       /* Center text inside h4 */
+}
+
+.roblox-button h4 a {
+    color: inherit;           /* Inherit color from parent */
+    text-decoration: underline; /* Optional: underline for links */
+    font-size: inherit;       /* Inherit font size */
+    font-family: inherit;     /* Inherit font */
+    font-weight: inherit;     /* Inherit weight */
+}
+
+ 
+ </style>
+ <style>
+ </style>
+   <script>
+    function copyToClipboard(id) {
+        const text = document.getElementById(id).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied: " + text);
+  });
+}
+  </script>
+ </body>
+ 
+     <div class="topbar">
+         <div class="topbar-content">
+             <img src="keith1-3-12-2025.png" class="logo">
+ 
+     <div class="content">
+         <div class = "contentlinks">
+             <a href = "index.html">Home</a>
+             <a href = "More.html">Servers</a>
+             <a href = "logs.html">More</a>
+             <a href = "Credits.html">Credits</a>
+         </div>
+     </div>
+     </div>
+<div class="maincontent">
+    <h1>Servers</h1>
+    <h1>24/7 Servers</h1>
+    <div class="button-row">
+        <a href="javascript:void(0)" class="roblox-button" onclick="copyToClipboard('copyText1')">
+            <img src="KeithServer.png" alt="Keith's server!">
+            <h3>Keith's Server!</h3>
+            <h4>yeah cool</h4>
+            <h4>Hosted by: Keith1Roblox</h4>
+            <h4>Client: 2012M</h4>
+            <h4>Server IP (click to copy)</h4>
+            <span class="copy-box" id="copyText1">released-pregnant.gl.at.ply.gg:6238</span>
+        </a>
+
+                <a href="javascript:void(0)" class="roblox-button" onclick="copyToClipboard('copyText2')">
+            <img src="SFOTH.webp" alt="SFOTH IV">
+            <h3>SFOTH IV</h3>
+            <h4>Hosted by: mollomm1</h4>
+            <h4>Source: novetus.mymess.me</h4>
+            <h4>Client: 2008M</h4>
+            <h4>Server IP (click to copy)</h4>
+            <span class="copy-box" id="copyText2">64.23.130.52:53640</span>
+        </a>
+
+                <a href="javascript:void(0)" class="roblox-button" onclick="copyToClipboard('copyText1')">
+            <img src="WAAPP.jpg" alt="Work At A Pizza Place">
+            <h3>Work At A Pizza Place</h3>
+            <h4>Hosted by: mollomm1</h4>
+            <h4>Source: novetus.mymess.me</h4>
+            <h4>Client: 2010L</h4>
+            <h4>Server IP (click to copy)</h4>
+            <span class="copy-box" id="copyText1">64.23.130.52:53641</span>
+        </a>
+
+                <a href="javascript:void(0)" class="roblox-button" onclick="copyToClipboard('copyText1')">
+            <img src="zombies.jpg" alt="Keith's server!">
+            <h3>Build To Survive Zombies</h3>
+            <h4>Hosted by: mollomm1</h4>
+            <h4>Source: novetus.mymess.me</h4>
+            <h4>Client: 2012M</h4>
+            <h4>Server IP (click to copy)</h4>
+            <span class="copy-box" id="copyText1">64.23.130.52:53642</span>
+        </a>
+    </div>
+</div>
+
+ </html>
