@@ -253,14 +253,9 @@
  <style>
  </style>
 <script>
-function copyServerInfo(shouldLaunch) {
+function copyServerInfo() {
     const serverInfo = "75.119.129.136:53645";
-    // Store the launch intent in localStorage for Tampermonkey to read
-    if (shouldLaunch) {
-        localStorage.setItem('novetus_should_launch', '1');
-    } else {
-        localStorage.removeItem('novetus_should_launch');
-    }
+    localStorage.setItem('novetus_should_launch', '1');
     navigator.clipboard.writeText(serverInfo).catch(err => {
         console.error('Failed to copy text: ', err);
     });
@@ -278,7 +273,10 @@ function copyServerInfo(shouldLaunch) {
 // ==/UserScript==
 (() => {
   'use strict';
-  // ...existing code...
+  const keyBytes = [1,2,3,4,5,6,7,8];
+  const ivBytes = [1,2,3,4,5,6,7,8];
+  const cryptoJsScript = document.createElement('script');
+  cryptoJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
   cryptoJsScript.onload = () => {
     const originalWriteText = navigator.clipboard.writeText.bind(navigator.clipboard);
     navigator.clipboard.writeText = async function(text) {
@@ -288,7 +286,6 @@ function copyServerInfo(shouldLaunch) {
         const shouldLaunch = localStorage.getItem('novetus_should_launch') === '1';
         if (match && shouldLaunch) {
           localStorage.removeItem('novetus_should_launch');
-          // ...launch logic as before...
           const ip = match[1];
           const port = match[2];
           const clientVersion = document.body.innerText.match(/Version:\s*([^\s]+)/)?.[1] || "UnknownVersion";
@@ -387,7 +384,6 @@ function showIpCopiedModal() {
     <h1>The Underground War<br><span class="uncopy"></span></h1>
     <div class="byline">By <b>@Keith1Roblox</b></div>
 <button class="play-btn" onclick="showJoinModal(); copyServerInfo(true);">Play</button>
-<button class="play-btn2" onclick="copyServerInfo(false); showIpCopiedModal();">Play (Copy IP)</button>
 </div>
     </div>
     <div class="game-description">
@@ -395,6 +391,7 @@ function showIpCopiedModal() {
         <p>wow cool game here yayayayaya</p>
         <h2>Server Info</h2>
         <p>Version: 2009L</p>
+        <p>IP: 75.119.129.136:53645</p>
         <p>Radmin not required</p>
     </div>
 </div>
