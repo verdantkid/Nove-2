@@ -11,6 +11,25 @@
     <link rel="icon" href="logo.png">
  </head>
  <body>
+    <div id="join-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <img src="../keith1-3-12-2025 (1).png" alt="Roblox Logo" class="modal-logo">
+
+    <div class="modal-spinner"></div>
+       <h2 style="font-weight: 300; font-family: 'Source Sans 3', sans-serif;">Novetus is now loading. Get ready!</h2>
+  </div>
+</div>
+<div id="uri-modal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('uri-modal').style.display='none'">&times;</button>
+    <h2 style="font-weight:300; font-family:'Source Sans 3',sans-serif; margin-bottom:32px;">
+      Install the Novetus URI if you havent already!
+    </h2>
+<button class="install-btn" onclick="window.open('../Help/URI.html')">
+    Install Novetus URI
+</button>
+  </div>
+</div>
  <style>
      body {
          margin: 0;
@@ -143,19 +162,190 @@
     font-weight: inherit;     /* Inherit weight */
 }
 
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 40px 60px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    min-width: 320px;
+}
+
+.modal-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.modal-spinner {
+    margin: 24px auto 16px auto;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #1976d2;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+.modal-content h2 {
+    font-weight: 300;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.install-btn {
+    background: #3b99f8;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+    padding: 16px 48px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(59,153,248,0.08);
+}
+.install-btn:hover {
+    background: #236096;
+    color: #fff;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 2;
+}
+.modal-close:hover {
+    color: #1976d2;
+}
+.modal-content {
+    position: relative; /* Ensure the close button is positioned relative to the modal */
+}
  
  </style>
  <style>
  </style>
 <script>
 function copyServerInfo() {
-    const serverInfo = "64.23.130.52:53642"; // Example text to copy
-    navigator.clipboard.writeText(serverInfo).then(() => {
-        alert("Server info copied to clipboard!\n\n" + serverInfo);
-    }).catch(err => {
+    const serverInfo = "64.23.130.52:53641"; // Example text to copy
+    navigator.clipboard.writeText(serverInfo).catch(err => {
         console.error('Failed to copy text: ', err);
     });
 }
+</script>
+<script>
+// ==UserScript==
+// @name         Nove autolauncher
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Hooks clipboard.writeText to auto-launch novetus for lazy people like myself :3c
+// @author       tocat
+// @match        https://keith1r0blox.github.io/Nove/*
+// @grant        none
+// ==/UserScript==
+(() => {
+  'use strict';
+  const keyBytes = [1,2,3,4,5,6,7,8];
+  const ivBytes = [1,2,3,4,5,6,7,8];
+  const cryptoJsScript = document.createElement('script');
+  cryptoJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
+  cryptoJsScript.onload = () => {
+    const originalWriteText = navigator.clipboard.writeText.bind(navigator.clipboard);
+    navigator.clipboard.writeText = async function(text) {
+      try {
+        const match = text.match(/^(\d{1,3}(?:\.\d{1,3}){3}):(\d{1,5})$/);
+        if (match) {
+          const ip = match[1];
+          const port = match[2];
+          const clientVersion = document.body.innerText.match(/Version:\s*([^\s]+)/)?.[1] || "UnknownVersion";
+          console.log("Got clientVersion: " + clientVersion)
+          function encodeDES(str) {
+            const key = CryptoJS.enc.Hex.parse(keyBytes.map(b => b.toString(16).padStart(2,'0')).join(''));
+            const iv = CryptoJS.enc.Hex.parse(ivBytes.map(b => b.toString(16).padStart(2,'0')).join(''));
+            const encrypted = CryptoJS.DES.encrypt(
+              CryptoJS.enc.Utf16LE.parse(str),
+              key,
+              {
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+              }
+            );
+            return encrypted.toString();
+          }
+          const arr = [
+            encodeDES(ip),
+            encodeDES(port),
+            encodeDES(clientVersion)
+          ];
+          const joined = arr.join('|');
+          const base64encoded = btoa(joined);
+          const finalUri = `novetus://${base64encoded}`;
+          console.log('[Novetus Hook] Launching URI:', finalUri);
+          await originalWriteText(finalUri);
+          window.location.href = finalUri;
+          return Promise.resolve();
+        }
+      } catch (e) {
+        console.error('[Novetus Hook] Error in writeText hook:', e);
+      }
+      return originalWriteText(text);
+    };
+    console.log('[Novetus Hook] Clipboard.writeText hooked successfully');
+  };
+  document.head.appendChild(cryptoJsScript);
+  console.log("[Novetus Hook] Init function executed!");
+})();
+console.log("[Novetus Hook] UserScript ran!");
+</script>
+<script>
+let uriTimeout;
+let userLeft = false;
+
+function showJoinModal() {
+    userLeft = false;
+    document.getElementById('join-modal').style.display = 'flex';
+    setTimeout(() => {
+        document.getElementById('join-modal').style.display = 'none';
+    }, 5000);
+
+    uriTimeout = setTimeout(() => {
+        if (!userLeft) {
+            document.getElementById('uri-modal').style.display = 'flex';
+        }
+    }, 5000);
+}
+
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden' && uriTimeout) {
+        userLeft = true;
+        clearTimeout(uriTimeout);
+        uriTimeout = null;
+        // Optionally also hide the URI modal if it's open
+        document.getElementById('uri-modal').style.display = 'none';
+    }
+});
 </script>
  </body>
  
@@ -167,7 +357,7 @@ function copyServerInfo() {
          <div class = "contentlinks">
              <a href = "../index.html">Home</a>
              <a href = "../More.html">Servers</a>
-             <a href = "../logs.html">More</a>
+             <a href = "../logs.html">Help</a>
              <a href = "../Credits.html">Credits</a>
             <a href="../Server.html">Server Service</a>
          </div>
@@ -179,7 +369,7 @@ function copyServerInfo() {
 <div class="game-info">
     <h1>Build To Survive Zombies<br><span class="uncopy"></span></h1>
     <div class="byline">By <b>@mollomm1</b></div>
-    <button class="play-btn" onclick="copyServerInfo()">Play</button>
+<button class="play-btn" onclick="showJoinModal(); copyServerInfo();">Play</button>
 </div>
     </div>
     <div class="game-description">

@@ -86,21 +86,17 @@
         font-weight: lighter;
     }
 
-.center-buttons {
-    position: fixed;
-    top: 24%;              /* Move higher up the screen */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .center-buttons {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 32px;
-    z-index: 10;
+    margin: 60px 0 40px 0;
 }
+
 .mid-btn {
-    background: #3b99f8;
-    color: #ffffff;
+    background: #b3dafe;
+    color: #1976d2;
     border: none;
     border-radius: 0;
     font-size: 1.3rem;
@@ -108,38 +104,45 @@
     font-weight: 300;
     padding: 18px 48px;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
     transition: background 0.2s, color 0.2s;
     letter-spacing: 0.5px;
 }
 .mid-btn:hover {
-    background: #236096;
-    color: #ffffff;
+    background: #e3f1fd;
+    color: #125ea2;
 }
 
 </style>
 <style>
-    
 </style>
-
+</body>
+    
     <div class="topbar">
         <div class="topbar-content">
-            <img src="keith1-3-12-2025.png" class="logo">
-            <div class="content">
-                <div class="contentlinks">
-                    <a href="index.html">Home</a>
-                    <a href="More.html">Servers</a>
-                    <a href="logs.html">Help</a>
-                    <a href="Credits.html">Credits</a>
-                    <a href="Server.html">Server Service</a>
-                </div>
-            </div>
+            <img src="../keith1-3-12-2025.png" class="logo">
+
+    <div class="content">
+        <div class="contentlinks">
+            <a href="../index.html">Home</a>
+            <a href="../More.html">Servers</a>
+             <a href = "../logs.html">Help</a>
+            <a href="../Credits.html">Credits</a>
+            <a href="../Server.html">Server Service</a>
+        </div>
         </div>
     </div>
-
-    <div class="center-buttons">
-        <button class="mid-btn" onclick="location.href='./Help/Hosting.html'">Hosting Servers</button>
-        <button class="mid-btn" onclick="location.href='./Help/Serverreq.html'">Server Requesting</button>
-        <button class="mid-btn" onclick="location.href='./Help/URI.html'">URI Setup</button>
     </div>
-</body>
+    <div class = "maincontent">
+        <h1>Hosting Servers</h1>
+        <h3>to host servers on a VPS or your own pc</h3>
+        <h3><a href="https://github.com/Mollomm1/NovetusDocker/">visit here</a></h3>
+        <h3>you need to have docker installed for this</h3>
+        <h3>you can use WSL if you are using Windows, or use the terminal if you're using linux</h3>
+        <h3>also please install docker on a disk drive that has alot of space (around 10 gigs of free space), or else it will get errors while building</h3>
+        <h3>if you're running the server and it doesn't show anything up after that, please type: apt-get install docker-buildx-plugin</h3>
+        <h3>and then rebuild the docker image</h3>
+        <h3>if you're getting errors, please ask ChatGPT or smth, that's how I did it</h3>
+        <h3>also if you want to host and open more stuff at the same time (google, discord, hosting and playing it) you need like around 20 - 31GB of ram (or more) or use a seprate PC</h3>
+
 </html>

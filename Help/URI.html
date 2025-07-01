@@ -86,21 +86,17 @@
         font-weight: lighter;
     }
 
-.center-buttons {
-    position: fixed;
-    top: 24%;              /* Move higher up the screen */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .center-buttons {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 32px;
-    z-index: 10;
+    margin: 60px 0 40px 0;
 }
+
 .mid-btn {
-    background: #3b99f8;
-    color: #ffffff;
+    background: #b3dafe;
+    color: #1976d2;
     border: none;
     border-radius: 0;
     font-size: 1.3rem;
@@ -108,38 +104,54 @@
     font-weight: 300;
     padding: 18px 48px;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
     transition: background 0.2s, color 0.2s;
     letter-spacing: 0.5px;
 }
 .mid-btn:hover {
-    background: #236096;
-    color: #ffffff;
+    background: #e3f1fd;
+    color: #125ea2;
+}
+
+.tutorial-img {
+    width: 520px;           /* Adjust width as needed */
+    max-width: 100%;
+    border-radius: 16px;    /* Rounded corners */
+    display: block;     /* Center the image */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Optional: subtle shadow */
 }
 
 </style>
 <style>
-    
 </style>
-
+</body>
+    
     <div class="topbar">
         <div class="topbar-content">
-            <img src="keith1-3-12-2025.png" class="logo">
-            <div class="content">
-                <div class="contentlinks">
-                    <a href="index.html">Home</a>
-                    <a href="More.html">Servers</a>
-                    <a href="logs.html">Help</a>
-                    <a href="Credits.html">Credits</a>
-                    <a href="Server.html">Server Service</a>
-                </div>
-            </div>
+            <img src="../keith1-3-12-2025.png" class="logo">
+
+    <div class="content">
+        <div class="contentlinks">
+            <a href="../index.html">Home</a>
+            <a href="../More.html">Servers</a>
+             <a href = "../logs.html">Help</a>
+            <a href="../Credits.html">Credits</a>
+            <a href="../Server.html">Server Service</a>
+        </div>
         </div>
     </div>
-
-    <div class="center-buttons">
-        <button class="mid-btn" onclick="location.href='./Help/Hosting.html'">Hosting Servers</button>
-        <button class="mid-btn" onclick="location.href='./Help/Serverreq.html'">Server Requesting</button>
-        <button class="mid-btn" onclick="location.href='./Help/URI.html'">URI Setup</button>
     </div>
-</body>
+
+
+    <div class = "maincontent">
+        <h1>URI install tutorial</h1>
+        <h1>Step 1: Open Novetus Snapshot on Adminstrator</h1>
+            <img src="step 1.png" class = "tutorial-img">
+        <h1>Step 2: Click on "Install URI"</h1>
+            <img src="Step 2.png" class = "tutorial-img">
+        <h1>Step 3: Click on "Run" (if you recieved the message)</h1>
+            <img src="Step 3.png" class = "tutorial-img">
+        <h1>Step 4: Click on "Install URI and UserAgent"</h1>
+            <img src="Step 4.png" class = "tutorial-img">
+
 </html>
