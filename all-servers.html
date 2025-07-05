@@ -181,6 +181,88 @@
     font-weight: lighter;
     color: #000;
 }
+
+.radmin-button {
+    display: flex;                /* Change from inline-block to flex */
+    flex-direction: column;       /* Stack children vertically */
+    align-items: center;          /* Center content horizontally */
+    width: 203px;
+    padding: 0 0 16px 0;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.radmin-button img {
+    width: 100%;
+    height: 200px;        /* Force all images to be 200px tall */
+    object-fit: cover;    /* Crop to fill the area */
+    transition: transform 0.2s;
+}
+
+ 
+     .radmin-button h3 {
+         margin: 12px 0 0 0;
+         font-size: 16px;
+         font-weight: bold;
+         font-family: 'Source Sans 3', sans-serif;
+     }
+ 
+     .radmin-button:hover {
+         transform: scale(1.05);
+     }
+ 
+     .radmin-button h4 {
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: lighter;
+    font-family: 'Source Sans 3', sans-serif;
+    width: 100%;              /* Make h4 take full width of button */
+    box-sizing: border-box;   /* Ensure padding/border don't overflow */
+    text-align: center;       /* Center text inside h4 */
+}
+
+.radmin-button h4 a {
+    color: inherit;           /* Inherit color from parent */
+    text-decoration: underline; /* Optional: underline for links */
+    font-size: inherit;       /* Inherit font size */
+    font-family: inherit;     /* Inherit font */
+    font-weight: inherit;     /* Inherit weight */
+}
+
+.radmin-logo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;   /* Adjust size as needed */
+    height: 32px;
+    z-index: 2;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    padding: 2px;
+}
+.radmin-button {
+    position: relative; /* Needed for absolute positioning inside */
+}
+
+.radmin-inline-logo {
+    height: 14px;
+    width: 14px;
+    vertical-align: middle;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+
  
  </style>
  <style>
@@ -268,7 +350,17 @@
             <h3>The Underground War</h3>
             <h4>@Keith1Roblox</h4>
         </a>
-</div>
+
+                                 <a href="./ServerInfo/Haunted.html" class="roblox-button">
+            <img src="image.png" alt="No image" />
+            
+            <h3>Haunted Mansion</h3>
+            <h4>  <img src="radmin-logo.png" alt="Radmin VPN" style="height: 14px; width: 14px; vertical-align: middle; margin-left: 2px; margin-bottom: 2px;">
+              @bluugon_
+            </h4> 
+        </a>
+
+
 
 </div>
     </div>

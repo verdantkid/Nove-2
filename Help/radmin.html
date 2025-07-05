@@ -86,9 +86,36 @@
         font-weight: lighter;
     }
 
+    .center-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin: 60px 0 40px 0;
+}
+
+.mid-btn {
+    background: #b3dafe;
+    color: #1976d2;
+    border: none;
+    border-radius: 0;
+    font-size: 1.3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+    padding: 18px 48px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.5px;
+}
+.mid-btn:hover {
+    background: #e3f1fd;
+    color: #125ea2;
+}
+
 .center-buttons {
     position: fixed;
-    top: 30%;              /* Move higher up the screen */
+    top: 24%;              /* Move higher up the screen */
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -116,31 +143,51 @@
     color: #ffffff;
 }
 
+
+
 </style>
 <style>
-    
 </style>
+<script>
+function copyServerName() {
+    const serverInfo = "Nove RadminVPN Server";
+    alert("Copied Server Name to Clipboard!");
+    localStorage.setItem('novetus_should_launch', '1');
+    navigator.clipboard.writeText(serverInfo).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
+</script>
 
+<script>
+function copyServerPass() {
+    const serverInfo = "Ilovenovehaha";
+    alert("Copied Server Password to Clipboard!");
+    localStorage.setItem('novetus_should_launch', '1');
+    navigator.clipboard.writeText(serverInfo).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
+</script>
+    
     <div class="topbar">
         <div class="topbar-content">
-            <img src="keith1-3-12-2025.png" class="logo">
-            <div class="content">
-                <div class="contentlinks">
-                    <a href="index.html">Home</a>
-                    <a href="More.html">Servers</a>
-                    <a href="logs.html">Help</a>
-                    <a href="Credits.html">Credits</a>
-                    <a href="Server.html">Server Service</a>
-                </div>
-            </div>
+            <img src="../keith1-3-12-2025.png" class="logo">
+
+    <div class="content">
+        <div class="contentlinks">
+            <a href="../index.html">Home</a>
+            <a href="../More.html">Servers</a>
+             <a href = "../logs.html">Help</a>
+            <a href="../Credits.html">Credits</a>
+            <a href="../Server.html">Server Service</a>
+        </div>
         </div>
     </div>
-
-    <div class="center-buttons">
-        <button class="mid-btn" onclick="location.href='./Help/Hosting.html'">Hosting Servers</button>
-        <button class="mid-btn" onclick="location.href='./Help/Serverreq.html'">Server Requesting</button>
-        <button class="mid-btn" onclick="location.href='./Help/URI.html'">URI Setup</button>
-        <button class="mid-btn" onclick="location.href='./Help/radmin.html'">Nove's RadminVPN Server</button>
     </div>
-</body>
+    <div class="center-buttons">
+        <button class="mid-btn" onclick="copyServerName();">Copy Server Name</button>
+        <button class="mid-btn" onclick="copyServerPass();">Copy Password</button>
+    </div>
+
 </html>
