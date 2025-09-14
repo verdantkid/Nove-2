@@ -1,7 +1,7 @@
  body {
         margin: 0;
         display: flex;
-        font-family: 'Source Sans 3', sans-serif;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
         background-color: rgb(252, 251, 255)
 
     }
@@ -130,4 +130,5 @@
         color: rgb(0, 0, 0);
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight: lighter;
+
     }
