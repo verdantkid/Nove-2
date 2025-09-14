@@ -1,7 +1,7 @@
  body {
         margin: 0;
         display: flex;
-        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        font-family: 'Source Sans 3', sans-serif;
         background-color: rgb(252, 251, 255)
 
     }
@@ -132,3 +132,4 @@
         font-weight: lighter;
 
     }
+
