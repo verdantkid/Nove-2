@@ -2,8 +2,17 @@ html, body {
       background-color: #181818;
       font-family: sans-serif;
       color: #ffffff;
+      margin: 0;
+      padding: 0%;
 }
 main {
       color: #ffffff; 
+}
+
+.header {
+      position: absolute;
+      height: 100px;
+      width: 100%;
+      border: none;
 }
 
